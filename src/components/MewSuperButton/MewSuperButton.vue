@@ -25,7 +25,7 @@
           'full-width',
           isColumn ? 'text-center' : 'text-left'
         ]"
-        :cols="isColumn ? 12 : leftColsNum"
+        :cols="isColumn || noRightImg ? 12 : leftColsNum"
       >
         <div
           :class="[
@@ -67,6 +67,7 @@
         </div>
       </v-col>
       <v-col
+        v-if="!noRightImg"
         :cols="isColumn ? 12 : rightColsNum"
         :class="[
           'right-container',
@@ -241,6 +242,13 @@ export default {
     disabled: {
       type: Boolean,
       default: false
+    },
+    /**
+     * Removes right col on mobile
+     */
+    noRightImg: {
+      type: Boolean,
+      default: false
     }
   },
   data() {
@@ -279,7 +287,7 @@ export default {
       return classes;
     },
     onBtnClick() {
-      this.active = !this.active;
+      //this.active = !this.active;
     },
     getColor() {
       const colorThemesWhite = ['outline', 'basic'];

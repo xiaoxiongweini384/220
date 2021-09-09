@@ -34,6 +34,7 @@
             title-icon="mdi-shield-check"
             title-icon-type="mdi"
             title-icon-class="primary--text"
+            :no-right-img="$vuetify.breakpoint.smAndDown"
           >
             <!-- need to add this slot -->
             <template #contentBelowTitle>
@@ -79,6 +80,7 @@
           :right-icon="
             require('@/assets/images/icons/icon-hardware-wallet.png')
           "
+          :no-right-img="$vuetify.breakpoint.smAndDown"
           @click.native="
             $router.push({ name: ROUTES_HOME.BUY_HARDWARE_WALLET.NAME })
           "

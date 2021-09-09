@@ -29,6 +29,7 @@
             :title-icon-type="btn.titleIconType"
             :title-icon-class="btn.titleIconClass"
             :note="btn.note"
+            :no-right-img="$vuetify.breakpoint.smAndDown"
             @click.native="btn.fn"
           >
             <template v-if="btn.rightIcon || btn.rightIcons" #contentSlot>
