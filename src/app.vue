@@ -60,5 +60,5 @@ export default {
 
 <style lang="scss">
 @import '@/assets/styles/GlobalStyles.scss';
-@import '@myetherwallet/mew-components/src/assets/styles/global.scss';
+@import '@/mew-components/assets/styles/global.scss';
 </style>
