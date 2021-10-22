@@ -196,28 +196,14 @@ export default {
     showsActiveState: {
       type: Boolean,
       default: false
-    },
-    btnColor: {
-      type: String,
-      default: ''
-    },
-    textColor: {
-      type: String,
-      default: ''
-    },
-    // white as default hover color
-    hoverColor: {
-      type: String,
-      default: 'white'
-    },
-    // white as default ripple color
-    rippleColor: {
-      type: String,
-      default: 'white'
     }
   },
   data() {
     return {
+      btnColor: '',
+      textColor: '',
+      hoverColor: '',
+      rippleColor: '',
       btnStyles: {
         background: 'background',
         transparent: 'transparent',
@@ -275,6 +261,178 @@ export default {
     getClasses() {
       const classes = [];
 
+      // Set text, hover, ripple color for color themes
+      switch (this.colorTheme) {
+        // =======================================
+        // Theme: Basic
+        // =======================================
+        case 'basic':
+          this.btnColor = 'greyPrimary';
+          this.textColor = '';
+          this.hoverColor = '';
+          this.rippleColor = '';
+          break;
+
+        case 'basic-light':
+          this.btnColor = 'greyLight';
+          this.textColor = 'textMedium';
+          this.hoverColor = 'black';
+          this.rippleColor = '';
+          break;
+
+        case 'basic-outline':
+          this.btnColor = '';
+          this.textColor = 'textMedium';
+          this.hoverColor = 'black';
+          this.rippleColor = '';
+          classes.push('btn-basic-outline');
+          break;
+
+        case 'basic-transparent':
+          this.btnColor = 'transparent';
+          this.textColor = 'textMedium';
+          this.hoverColor = 'black';
+          this.rippleColor = '';
+          //classes.push('btn-basic-transparent');
+          break;
+
+        // =======================================
+        // Theme: Secondary
+        // =======================================
+        case 'secondary':
+          this.btnColor = 'bluePrimary';
+          this.textColor = '';
+          this.hoverColor = '';
+          this.rippleColor = '';
+          break;
+
+        case 'secondary-light':
+          this.btnColor = '#f1f5fe';
+          this.textColor = 'bluePrimary';
+          this.hoverColor = 'blue';
+          this.rippleColor = 'blue';
+          break;
+
+        case 'secondary-outline':
+          this.btnColor = '';
+          this.textColor = 'bluePrimary';
+          this.hoverColor = 'blue';
+          this.rippleColor = 'blue';
+          classes.push('btn-secondary-outline');
+          break;
+
+        case 'secondary-transparent':
+          this.btnColor = '';
+          this.textColor = 'bluePrimary';
+          this.hoverColor = 'blue';
+          this.rippleColor = 'blue';
+          classes.push('btn-secondary-transparent');
+          break;
+
+        // =======================================
+        // Theme: Primary
+        // =======================================
+        case 'primary':
+          this.btnColor = 'primary';
+          this.textColor = '';
+          this.hoverColor = '';
+          this.rippleColor = '';
+          break;
+
+        case 'primary-light':
+          this.btnColor = 'superPrimary';
+          this.textColor = 'primary';
+          this.hoverColor = '#19ffde';
+          this.rippleColor = '#19ffde';
+          break;
+
+        case 'primary-outline':
+          this.btnColor = '';
+          this.textColor = 'primary';
+          this.hoverColor = '#19ffde';
+          this.rippleColor = '#19ffde';
+          classes.push('btn-primary-outline');
+          break;
+
+        case 'primary-transparent':
+          this.btnColor = '';
+          this.textColor = 'primary';
+          this.hoverColor = '#19ffde';
+          this.rippleColor = '#19ffde';
+          classes.push('btn-primary-transparent');
+          break;
+
+        // =======================================
+        // Theme: Error
+        // =======================================
+        case 'error':
+          this.btnColor = 'error';
+          this.textColor = '';
+          this.hoverColor = '';
+          this.rippleColor = '';
+          break;
+
+        case 'error-light':
+          this.btnColor = 'redLight';
+          this.textColor = 'error';
+          this.hoverColor = '';
+          this.rippleColor = '';
+          break;
+
+        case 'error-outline':
+          this.btnColor = '';
+          this.textColor = 'error';
+          this.hoverColor = '#19ffde';
+          this.rippleColor = '#19ffde';
+          classes.push('btn-error-outline');
+          break;
+
+        case 'error-transparent':
+          this.btnColor = '';
+          this.textColor = 'error';
+          this.hoverColor = '#19ffde';
+          this.rippleColor = '#19ffde';
+          classes.push('btn-error-transparent');
+          break;
+
+        // =======================================
+        // Theme: disabled
+        // =======================================
+        case 'disable':
+          this.btnColor = 'disabledMedium';
+          this.textColor = 'white';
+          this.hoverColor = '';
+          this.rippleColor = '';
+          classes.push('btn-disable');
+          break;
+
+        case 'disable-light':
+          this.btnColor = 'disabledLight';
+          this.textColor = 'disabledPrimary';
+          this.hoverColor = '';
+          this.rippleColor = '';
+          classes.push('btn-disable-light');
+          break;
+
+        case 'disable-outline':
+          this.btnColor = '';
+          this.textColor = 'disabledPrimary';
+          this.hoverColor = '';
+          this.rippleColor = '';
+          classes.push('btn-disable-outline');
+          break;
+
+        case 'disable-transparent':
+          this.btnColor = '';
+          this.textColor = 'disabledPrimary';
+          this.hoverColor = '';
+          this.rippleColor = '';
+          classes.push('btn-disabled-transparent');
+          break;
+
+        default:
+      }
+
       if (this.btnSize.toLowerCase()) {
         classes.push(this.btnSize.toLowerCase() + '-btn');
       }
@@ -307,7 +465,6 @@ export default {
       if (this.isTransparent) {
         classes.push('mew-transparent');
       }
-
       return classes;
     },
     hasSrc(src) {
@@ -353,31 +510,6 @@ export default {
       padding: 0 46px;
     }
 
-    // button active states
-    &.primary.white--text.active {
-      background-color: var(--v-primaryActive-base) !important;
-    }
-
-    &.primary.white--text:hover {
-      background-color: var(--v-primaryHover-base) !important;
-    }
-
-    &.primary--text.v-btn--outlined.active {
-      background-color: var(--v-primaryOutlineActive-base) !important;
-    }
-
-    &.secondary--text.v-btn--outlined.active {
-      background-color: var(--v-secondaryOutlineActive-base) !important;
-    }
-
-    &.error--text.v-btn--outlined.active {
-      background-color: var(--v-errorOutlineActive-base) !important;
-    }
-
-    &.basic--text.v-btn--outlined.active {
-      background-color: var(--v-basicOutlineActive-base) !important;
-    }
-
     // disabled btn
     &.v-btn--disabled:not(.v-btn--flat):not(.v-btn--text):not(.v-btn--outlined) {
       background-color: var(--v-disabled-base) !important;
@@ -405,5 +537,58 @@ export default {
 // otherwise use default hover color
 .v-btn::before {
   background-color: var(--hover-color, currentColor);
+}
+
+// btn-basic
+.btn-basic-outline {
+  border: 1px solid var(--v-greyMedium-base) !important;
+  background-color: transparent !important;
+}
+.btn-basic-transparent {
+  background-color: transparent !important;
+}
+
+// btn-secondary
+.btn-secondary-outline {
+  border: 1px solid var(--v-blueMedium-base) !important;
+  background-color: transparent !important;
+}
+.btn-secondary-transparent {
+  background-color: transparent !important;
+}
+
+// btn-primary
+.btn-primary-outline {
+  border: 1px solid var(--v-primary-base) !important;
+  background-color: transparent !important;
+}
+.btn-primary-transparent {
+  background-color: transparent !important;
+}
+
+// btn-error
+.btn-error-outline {
+  border: 1px solid var(--v-redMedium-base) !important;
+  background-color: transparent !important;
+}
+.btn-error-transparent {
+  background-color: transparent !important;
+}
+
+// btn-disable
+.btn-disable {
+  pointer-events: none;
+}
+.btn-disable-light {
+  pointer-events: none;
+}
+.btn-disable-outline {
+  pointer-events: none;
+  border: 1px solid var(--v-disabledPrimary-base) !important;
+  background-color: transparent !important;
+}
+.btn-disabled-transparent {
+  pointer-events: none;
+  background-color: transparent !important;
 }
 </style>

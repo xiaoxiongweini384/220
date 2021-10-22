@@ -1,5 +1,118 @@
 <template>
   <div class="mew-component--landing">
+    <v-container>
+      <mew-icon-button
+        btn-size="small"
+        mdi-icon="chevron-right"
+      ></mew-icon-button>
+
+      <mew-icon-button
+        btn-size="medium"
+        mdi-icon="chevron-right"
+        btn-style="outline1"
+        color-theme="basic"
+      ></mew-icon-button>
+
+      <mew-icon-button
+        btn-size="medium"
+        mdi-icon="chevron-right"
+        btn-style="outline1"
+        color-theme="error"
+      ></mew-icon-button>
+
+      <mew-icon-button
+        btn-size="medium"
+        mdi-icon="chevron-right"
+        btn-style="outline1"
+        color-theme="secondary"
+      ></mew-icon-button>
+    </v-container>
+    <v-container>
+      <mew-icon-button
+        btn-size="small"
+        mdi-icon="chevron-right"
+        btn-style="outline"
+      ></mew-icon-button>
+
+      <mew-icon-button
+        btn-size="medium"
+        mdi-icon="chevron-right"
+        btn-style="outline"
+        color-theme="basic"
+      ></mew-icon-button>
+
+      <mew-icon-button
+        btn-size="medium"
+        mdi-icon="chevron-right"
+        btn-style="outline"
+        color-theme="error"
+      ></mew-icon-button>
+
+      <mew-icon-button
+        btn-size="medium"
+        mdi-icon="chevron-right"
+        btn-style="outline"
+        color-theme="secondary"
+      ></mew-icon-button>
+    </v-container>
+    <v-container>
+      <mew-icon-button
+        btn-size="small"
+        mdi-icon="chevron-right"
+        btn-style="light"
+      ></mew-icon-button>
+
+      <mew-icon-button
+        btn-size="medium"
+        mdi-icon="chevron-right"
+        btn-style="light"
+        color-theme="basic"
+      ></mew-icon-button>
+
+      <mew-icon-button
+        btn-size="medium"
+        mdi-icon="chevron-right"
+        btn-style="light"
+        color-theme="error"
+      ></mew-icon-button>
+
+      <mew-icon-button
+        btn-size="medium"
+        mdi-icon="chevron-right"
+        btn-style="light"
+        color-theme="secondary"
+      ></mew-icon-button>
+    </v-container>
+    <v-container>
+      <mew-icon-button
+        btn-size="small"
+        mdi-icon="chevron-right"
+        btn-style="transparent"
+      ></mew-icon-button>
+
+      <mew-icon-button
+        btn-size="medium"
+        mdi-icon="chevron-right"
+        btn-style="transparent"
+        color-theme="basic"
+      ></mew-icon-button>
+
+      <mew-icon-button
+        btn-size="medium"
+        mdi-icon="chevron-right"
+        btn-style="transparent"
+        color-theme="error"
+      ></mew-icon-button>
+
+      <mew-icon-button
+        img-icon="/icons/icon-chrome.svg"
+        btn-style="transparent"
+        rounded
+        img-icon-size="30"
+      ></mew-icon-button>
+      <img src="@/assets/images/icons/icon-chrome.svg" />
+    </v-container>
+
     <div class="desktop-content d-none d-lg-block expandHeader">
       <v-container
         class="
